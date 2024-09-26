@@ -8,8 +8,8 @@ public class Cipher {
     private HashMap<Character, Integer> alphabetHashMap;
     
     public Cipher(char[] alphabet) {
-        this.alphabet = alphabet;
-        this.alphabetHashMap = alphabetToHashMap(alphabet);
+        this.alphabet = alphabet;    //получение алфавита
+        this.alphabetHashMap = alphabetToHashMap(alphabet); //алфавит в hashmap
     }
 
     public String encrypt(String text, int key) {
@@ -29,7 +29,7 @@ public class Cipher {
 
         return stringOut.toString();
     }
-    public String decrypt(String encryptedText, int key) {
+    public String decrypt(String encryptedText, int key) {      //расшифровка
         // Логика расшифровки
         return encrypt(encryptedText, alphabet.length - key%alphabet.length);
     }
