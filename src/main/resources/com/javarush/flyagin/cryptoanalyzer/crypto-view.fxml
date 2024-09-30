@@ -23,7 +23,20 @@
     </Tab>
     <Tab text="Расшифровка">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                   <Button layoutX="61.0" layoutY="58.0" mnemonicParsing="false" onAction="#getFileDecrypt" text="Выбрать файл" />
+                   <TextField fx:id="fileAddressDecrypt" layoutX="155.0" layoutY="58.0" prefHeight="25.0" prefWidth="313.0" />
+                   <TextField fx:id="keyDecrypt" layoutX="175.0" layoutY="270.0" prefHeight="25.0" prefWidth="95.0" />
+                   <Label layoutX="175.0" layoutY="28.0" text="Зашифрованный файл с текстом" />
+                   <Button layoutX="270.0" layoutY="270.0" mnemonicParsing="false" onAction="#onDecrypt" text="Расшифровать" />
+                   <Button layoutX="60.0" layoutY="132.0" mnemonicParsing="false" onAction="#getFileResultDecrypt" prefHeight="25.0" prefWidth="95.0" text="Выбрать файл" />
+                   <TextField fx:id="fileAddressResultDecrypt" layoutX="155.0" layoutY="132.0" prefHeight="25.0" prefWidth="317.0" />
+                   <Label layoutX="163.0" layoutY="104.0" text="Файл для результата расшифровки" />
+                   <Label layoutX="199.0" layoutY="247.0" text="Ключ" />
+               </children></AnchorPane>
+          
+
       </content>
     </Tab>
   </tabs>

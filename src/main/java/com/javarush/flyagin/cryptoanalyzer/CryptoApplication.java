@@ -12,7 +12,7 @@ public class CryptoApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CryptoApplication.class.getResource("crypto-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 400);
-        stage.setTitle("Hello!");
+        stage.setTitle("Шифр Цезаря");
         stage.setScene(scene);
         stage.show();
     }

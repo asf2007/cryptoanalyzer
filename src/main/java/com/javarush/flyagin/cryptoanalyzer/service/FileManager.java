@@ -6,18 +6,49 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class FileManager {
-    public static BufferedReader readFile(String path){            //чтение  из файла
-        Path file = Path.of(path);
-        try{BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-         return bufferedReader;
-        }catch (IOException ex){
-           throw new RuntimeException();
-        }
+    String input;
+    BufferedReader bufferedReader;
+    String str;
 
+    public FileManager(String input, String outPut) {
+        this.input = input;
+        this.outPut = outPut;
+        streamInit();
     }
-    public static void writeFile(String content, String path){   //запись в файл
+
+    String outPut;
+    private void streamInit() { //создание потока bufferedReader
+        try {
+            this.bufferedReader = new BufferedReader(new FileReader(input, Charset.forName("UTF-8")));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public  String readFile() {
+
+
+
+        try {
+            this.str = this.bufferedReader.readLine(); //чтение файла построчно
+            if(str!=null){
+                return this.str;
+            } else{
+                this.bufferedReader.close();
+                return this.str;
+            }
+
+        } catch (
+                IOException ex) {
+            throw new RuntimeException();
+        }
+    }
+
+    public  void writeFile(String content, String path){   //запись в файл
         try(FileWriter fileWriter = new FileWriter(path, Charset.forName("UTF-8"), true)) {
            fileWriter.write(content);
+           fileWriter.write("\n");
         }catch(IOException ex){
             throw new RuntimeException();
         }
